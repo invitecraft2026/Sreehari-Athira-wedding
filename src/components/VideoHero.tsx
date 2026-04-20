@@ -82,7 +82,7 @@ const VideoHero = () => {
               textShadow: "0 4px 15px rgba(0,0,0,0.35)",
             }}
           >
-            Ashrutha
+            Sreehari 
            
           </span>
 
@@ -105,7 +105,7 @@ const VideoHero = () => {
               textShadow: "0 4px 15px rgba(0,0,0,0.35)",
             }}
           >
-             Albin
+             Athira 
           </span>
         </div>
       </div>

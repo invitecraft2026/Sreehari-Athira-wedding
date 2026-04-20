@@ -2,8 +2,9 @@ import { useRef, useState, useEffect } from "react";
 import confetti from "canvas-confetti";
 import FloralDivider from "./FloralDivider";
 
+// ✅ UPDATED (IST → UTC converted)
 const WEDDING_CALENDAR_URL =
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Albin+%26+Ashrutha+Wedding&dates=20260518T034500Z/20260518T043500Z&details=Join+us+for+the+wedding+ceremony&location=Holiday+Home,+Kumily";
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sreehari+%26+Athira+Wedding&dates=20260518T062500Z/20260518T064000Z&details=Join+us+for+the+wedding+ceremony&location=Holiday+Home,+Kumily";
 
 const ScratchReveal = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -11,7 +12,6 @@ const ScratchReveal = () => {
   const isDrawing = useRef(false);
   const scratchCount = useRef(0);
 
-  // 📍 Get position (fixed for mobile)
   const getPos = (e: any) => {
     const canvas = canvasRef.current!;
     const rect = canvas.getBoundingClientRect();
@@ -25,7 +25,6 @@ const ScratchReveal = () => {
     };
   };
 
-  // 🎉 Reveal animation
   const triggerReveal = () => {
     setRevealed(true);
 
@@ -37,7 +36,6 @@ const ScratchReveal = () => {
     });
   };
 
-  // ✨ Scratch logic
   const scratch = (x: number, y: number) => {
     const ctx = canvasRef.current?.getContext("2d");
     if (!ctx) return;
@@ -54,25 +52,20 @@ const ScratchReveal = () => {
     }
   };
 
-  // 🎨 Draw scratch layer (IMPORTANT FIX HERE)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d")!;
-
-    // ✅ FIX: match actual display size
     const width = canvas.offsetWidth;
     const height = canvas.offsetHeight;
 
     canvas.width = width;
     canvas.height = height;
 
-    // 🎨 Solid cover (so scratch is visible)
     ctx.fillStyle = "#8B1A1A";
     ctx.fillRect(0, 0, width, height);
 
-    // ✨ text
     ctx.fillStyle = "#F5E6C8";
     ctx.font = "bold 16px serif";
     ctx.textAlign = "center";
@@ -104,14 +97,13 @@ const ScratchReveal = () => {
 
       <div className="relative mx-auto max-w-md h-[200px] rounded-xl overflow-hidden shadow-lg">
         
-        {/* 🎉 Revealed Content */}
+        {/* 🎉 UPDATED CONTENT */}
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-0">
           <span className="text-2xl mb-2">💍</span>
           <p className="text-lg font-serif">May 18, 2026</p>
-          <p className="text-sm text-gray-600">9:15 AM – 10:05 AM</p>
+          <p className="text-sm text-gray-600">11:55 AM – 12:10 PM</p>
         </div>
 
-        {/* 🪄 Scratch Layer */}
         {!revealed && (
           <canvas
             ref={canvasRef}
@@ -127,7 +119,6 @@ const ScratchReveal = () => {
         )}
       </div>
 
-      {/* 📅 Button */}
       {revealed && (
         <button
           onClick={() => window.open(WEDDING_CALENDAR_URL, "_blank")}

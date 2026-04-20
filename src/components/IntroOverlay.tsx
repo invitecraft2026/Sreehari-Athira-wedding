@@ -58,8 +58,8 @@ const Sparkle = ({ top, left, delay }: { top: string; left: string; delay: numbe
 );
 
 const IntroOverlay = ({
-  groomName = "Ashrutha",
-  brideName = "Albin",
+  groomName = "Sreehari S",
+  brideName = "Athira MS",
   onEnter,
 }: WeddingIntroProps) => {
   const [petals] = useState(() => Array.from({ length: 12 }, (_, i) => i));

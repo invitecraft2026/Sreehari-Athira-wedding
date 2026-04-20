@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import FloralDivider from "./FloralDivider";
 import FallingPetals from "./FallingPetals";
 
-const WEDDING_DATE = new Date("2026-05-18T03:45:00Z");
+// ✅ Correct IST time (NO "Z")
+const WEDDING_DATE = new Date("2026-05-18T11:55:00");
 
 const getRemaining = (target: Date) => {
   const diff = target.getTime() - Date.now();
@@ -35,7 +36,6 @@ const TimeUnit = ({
           "0 8px 32px rgba(139,26,26,0.08), inset 0 1px 0 rgba(255,255,255,0.55)",
       }}
     >
-      {/* Top shine */}
       <div
         className="absolute top-0 left-0 right-0 h-1/2 rounded-t-2xl"
         style={{ background: "rgba(242,201,122,0.12)" }}
@@ -89,7 +89,6 @@ const CountdownCard = ({
         "0 24px 64px rgba(139,26,26,0.14), 0 4px 16px rgba(160,116,42,0.10)",
     }}
   >
-    {/* Decorative circles */}
     <div
       className="absolute -top-8 -right-8 w-36 h-36 rounded-full opacity-15"
       style={{ background: "#D4A24C" }}
@@ -99,7 +98,6 @@ const CountdownCard = ({
       style={{ background: "#8B1A1A" }}
     />
 
-    {/* Top gold line */}
     <div
       className="absolute top-0 left-8 right-8 h-px"
       style={{
@@ -110,14 +108,12 @@ const CountdownCard = ({
 
     <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col items-center gap-6">
       
-      {/* 🐘 Ganesha Image */}
       <img
-        src="/ganesh.png"   // 👉 make sure image is in /public
+        src="/ganesh.png"
         alt="Ganesha"
         className="w-14 h-14 md:w-20 md:h-20 object-contain mb-2 opacity-95 drop-shadow-[0_4px_10px_rgba(139,26,26,0.3)]"
       />
 
-      {/* Title */}
       <h3
         className="font-serif italic text-2xl sm:text-3xl md:text-4xl mb-1"
         style={{ color: accent }}
@@ -125,17 +121,20 @@ const CountdownCard = ({
         {title}
       </h3>
 
-      {/* Divider */}
+      {/* ✅ Show time range here */}
+      <p
+        className="text-xs tracking-widest uppercase"
+        style={{ color: "#A0742A" }}
+      >
+        11:55 AM – 12:10 PM
+      </p>
+
       <div className="flex items-center gap-2 my-2">
         <div className="w-6 h-px" style={{ background: "#D4A24C60" }} />
-        <div
-          className="w-1 h-1 rounded-full"
-          style={{ background: "#D4A24C80" }}
-        />
+        <div className="w-1 h-1 rounded-full" style={{ background: "#D4A24C80" }} />
         <div className="w-6 h-px" style={{ background: "#D4A24C60" }} />
       </div>
 
-      {/* Timer */}
       <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
         <TimeUnit value={time.d} label="Days" accent={accent} />
         <TimeUnit value={time.h} label="Hours" accent={accent} />
@@ -181,7 +180,6 @@ const Countdown = () => {
           "radial-gradient(ellipse at top, #FBF5EC 0%, #F5E6C8 45%, #F2C4A0 100%)",
       }}
     >
-      {/* Bottom vignette */}
       <div
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
         style={{
@@ -193,8 +191,6 @@ const Countdown = () => {
       <FallingPetals count={12} />
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        
-        {/* Heading */}
         <div
           className="text-center mb-12"
           style={{
@@ -218,7 +214,6 @@ const Countdown = () => {
           </h2>
         </div>
 
-        {/* Countdown Card */}
         <CountdownCard
           title="Wedding"
           time={weddingTime}
@@ -229,7 +224,6 @@ const Countdown = () => {
           delay={0.2}
         />
 
-        {/* Divider */}
         <div
           className="mt-14"
           style={{

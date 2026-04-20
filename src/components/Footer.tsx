@@ -39,7 +39,7 @@ const Footer = () => (
             fill="#F2C97A"
             letterSpacing="3px"
           >
-            A
+            S
           </text>
 
           {/* Elegant & */}
