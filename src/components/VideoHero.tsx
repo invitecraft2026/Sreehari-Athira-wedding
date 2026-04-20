@@ -82,8 +82,8 @@ const VideoHero = () => {
               textShadow: "0 4px 15px rgba(0,0,0,0.35)",
             }}
           >
-            Sreehari 
            
+           Athira 
           </span>
 
          <span
@@ -104,8 +104,8 @@ const VideoHero = () => {
               color: "#FFF9F0",
               textShadow: "0 4px 15px rgba(0,0,0,0.35)",
             }}
-          >
-             Athira 
+          > Sreehari 
+             
           </span>
         </div>
       </div>
